@@ -300,6 +300,11 @@ def logout():
     return redirect(url_for('login'))
 
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
 @app.route('/', methods=['POST', 'GET'])
 @login_required
 def home():

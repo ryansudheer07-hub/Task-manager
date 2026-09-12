@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block title %}About · Nudge{% endblock %}
+{% block body %}
+<section class="hero" style="min-height:0; padding-top:10px;">
+    <p class="eyebrow">about / why nudge exists</p>
+    <h1 class="hero-title" style="font-size:clamp(2.4rem,6vw,4.6rem)">A calmer way to
+<em>get things done.</em></h1>
+    <p class="hero-copy" style="max-width:680px">
+        Nudge is a small, focused task manager built for people whose to-do list is honest but their
+        sense of time is not. It estimates how long a task will actually take, helps you fit today's
+        work into today's hours, and only interrupts you when something is genuinely falling behind.
+    </p>
+</section>
+
+<section style="margin-top:8px">
+    <div class="section-heading"><div><h2>Who it helps</h2><p>Built for people who plan in their head and pay for it later.</p></div></div>
+    <div class="task-grid" style="grid-template-columns: repeat(3, minmax(0,1fr))">
+        <div class="task-card glass" style="min-height:0">
+            <p class="task-title" style="margin-top:6px">Solo builders &amp; freelancers</p>
+            <p class="task-meta" style="margin-top:6px; color:var(--muted); font-size:12px; line-height:1.6">
+                Juggling client work, admin, and the actual craft, with no manager to say
+                &ldquo;that's too much for one day.&rdquo;
+            </p>
+        </div>
+        <div class="task-card glass" style="min-height:0">
+            <p class="task-title" style="margin-top:6px">Chronic under- and over-estimators</p>
+            <p class="task-meta" style="margin-top:6px; color:var(--muted); font-size:12px; line-height:1.6">
+                People whose &ldquo;this'll take 20 minutes&rdquo; reliably takes two hours, or vice
+                versa &mdash; and who want their tool to learn the difference.
+            </p>
+        </div>
+        <div class="task-card glass" style="min-height:0">
+            <p class="task-title" style="margin-top:6px">Anyone drowning in reminders</p>
+            <p class="task-meta" style="margin-top:6px; color:var(--muted); font-size:12px; line-height:1.6">
+                People who've muted every app's notifications because they cried wolf, and want
+                alerts that only fire when something is actually overdue.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section style="margin-top:38px">
+    <div class="section-heading"><div><h2>What it solves</h2><p>Three specific, everyday failure points in how people manage a day.</p></div></div>
+    <div class="task-grid" style="grid-template-columns: repeat(3, minmax(0,1fr))">
+        <div class="task-card glass" style="min-height:0">
+            <span class="badge">estimation drift</span>
+            <p class="task-title" style="margin-top:14px">&ldquo;How long will this take?&rdquo;</p>
+            <p class="task-meta" style="margin-top:6px; color:var(--muted); font-size:12px; line-height:1.6">
+                Every new task gets an AI-suggested estimate, calibrated against your own history of
+                how long similar work has actually taken you &mdash; not a generic guess.
+            </p>
+        </div>
+        <div class="task-card glass" style="min-height:0">
+            <span class="badge">unrealistic days</span>
+            <p class="task-title" style="margin-top:14px">&ldquo;Why is today already full?&rdquo;</p>
+            <p class="task-meta" style="margin-top:6px; color:var(--muted); font-size:12px; line-height:1.6">
+                &ldquo;Compose my day&rdquo; lays your open tasks into your real working hours by
+                priority and deadline, and is honest about what doesn't fit.
+            </p>
+        </div>
+        <div class="task-card glass" style="min-height:0">
+            <span class="badge">notification fatigue</span>
+            <p class="task-title" style="margin-top:14px">&ldquo;Tell me when it matters.&rdquo;</p>
+            <p class="task-meta" style="margin-top:6px; color:var(--muted); font-size:12px; line-height:1.6">
+                Browser alerts fire for tasks running over estimate, scheduled work that never
+                started, or things that have quietly gone stale &mdash; nothing else.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="glass" style="margin-top:38px; padding:28px 30px; border-radius:24px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:18px">
+    <div>
+        <p class="eyebrow">ready when you are</p>
+        <p class="task-title" style="margin:8px 0 0; font-size:19px">Make room for good work.</p>
+    </div>
+    {% if session.get('user_id') %}
+    <a href="{{ url_for('home') }}" class="btn btn-primary">Back to your tasks ↗</a>
+    {% else %}
+    <a href="{{ url_for('register') }}" class="btn btn-primary">Create your space ↗</a>
+    {% endif %}
+</section>
+{% endblock %}
