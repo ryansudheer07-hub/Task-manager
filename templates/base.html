@@ -6,9 +6,9 @@
     <title>{% block title %}Nudge{% endblock %}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/htmx.org@1.9.12"></script>
-    {% if session.get('user_id' ) %}<script src="{{ url_for('static', filename='reminders.js') }}"></script>{% endif %}
+    {% if session.get('user_id') %}<script src="{{ url_for('static', filename='reminders.js') }}"></script>{% endif %}
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='main.css' ) }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     {% block head %}{% endblock %}
 </head>
 {% block fullbleed %}
@@ -36,8 +36,7 @@
         {% endif %}
     </header>
     <main class="shell main-wrap">
-        {% with messages = get_flashed_messages() %}{% if messages %}<div class="flash" role="status">{% for message in messages %}{{ message }}{% if not loop.last %}
-{% endif %}{% endfor %}</div>{% endif %}{% endwith %}
+        {% with messages = get_flashed_messages() %}{% if messages %}<div class="flash" role="status">{% for message in messages %}{{ message }}{% if not loop.last %}<br>{% endif %}{% endfor %}</div>{% endif %}{% endwith %}
         {% block body %}{% endblock %}
     </main>
 </body>

@@ -5,8 +5,7 @@
 {% set done_count = tasks | length - open_count %}
 <section class="hero">
     <p class="eyebrow">{{ 'now' }} / your momentum space</p>
-    <h1 class="hero-title">Make room for
-<em>good work.</em></h1>
+    <h1 class="hero-title">Make room for<br><em>good work.</em></h1>
     <p class="hero-copy">A calm, intelligent place to turn intention into motion. Add what is on your mind and let Nudge shape the next right step.</p>
     <form action="{{ url_for('home') }}" method="POST" class="task-form glass" x-data="{ submitting: false }" x-on:submit="if (submitting) { $event.preventDefault(); return } submitting = true">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
